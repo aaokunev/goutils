@@ -86,3 +86,17 @@ func MustConvertToUUIDv4Slice(strList []string) []uuid.UUID {
 
 	return result
 }
+
+func ConvertUUIDSliceToStrSlice(uuidList []uuid.UUID) []string {
+	if uuidList == nil || len(uuidList) == 0 {
+		return make([]string, 0)
+	}
+
+	result := make([]string, 0, len(uuidList))
+
+	for _, uuidItem := range uuidList {
+		result = append(result, uuidItem.String())
+	}
+
+	return result
+}
